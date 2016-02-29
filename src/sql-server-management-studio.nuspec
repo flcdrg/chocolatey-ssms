@@ -34,7 +34,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>SQL Server Management Studio (Install)</title>
+    <title>SQL Server Management Studio</title>
     <authors>Microsoft</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://msdn.microsoft.com/en-us/library/mt238290.aspx</projectUrl>
