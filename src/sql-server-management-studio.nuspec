@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.12000.65-preview</version>
+    <version>13.0.12500.29-preview</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -32,14 +32,17 @@
 	This release also provides the greatest level of support for working with the latest cloud features in Azure SQL Database.
 	</description>
     <releaseNotes>
-#### [SSMS February 2016 Preview (13.0.12000.65)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS March 2016 Preview (13.0.12500.29)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* Improvement in Activity monitor to display text options when high contrast settings are enabled in SSMS.
-* Improvement in the Always Encrypted wizard dialog to display a warning if the collation for a column will be changed during the encryption process.
-* Improvement in policy management to add support for creating conditions on Column Encryption Keys, Column Encryption Key Values, and Column Master keys.
-* Bug fix to improve usability of Always Encrypted master key cleanup dialog and Always Encrypted error messages.
-* Bug fix to disable Always Encrypted column master key rotation if only one key exists.
-* Bug fix for 'type initializer' error that occurs if Always Encrypted dialog is launched using the SSMS January release or the SSMS release bundled with the SQL Server RC0 media.
+* Improvement in SSMS web installer to allow navigation using keyboard keys.
+* Improvement in AlwaysEncrypted wizard to support alias data types for encryption.
+* Bug Fix in AlwaysOn 'New Availability Group' wizard to display the correct number of maximum automatic failover targets.
+Linked customer bug requests: https://connect.microsoft.com/SQLServer/feedback/details/2333670/ssms-is-showing-the-wrong-number-of-maximum-automatic-failover-targets/
+* Bug fix in SSMS web installer to fix errors affecting installation.
+Linked customer bug requests:
+https://connect.microsoft.com/SQLServer/feedback/details/2181548/sql-server-2016-ctp-3-2-management-studio-setup/
+* Bug fix in SSMS preview release to enable saving maintenance plans on SQL Server 2012 and below.
+* Bug fixes in Backup wizard to allow custom multiple backup names for striped backups, and to display appropriate backup file name if a new name is entered after a storage credential is selected.
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->

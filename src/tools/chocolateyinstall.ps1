@@ -3,7 +3,7 @@
 
 $packageName= 'SQL Server Management Studio'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'http://download.microsoft.com/download/E/E/1/EE12CC0F-A1A5-4B55-9425-2AFBB2D63979/SSMS-Full-Setup.exe'
+$url = 'http://download.microsoft.com/download/A/7/7/A77F55AC-6DFF-4B73-B2BD-420A97B946A3/SSMS-Setup-ENU.exe'
 
 $packageArgs = @{
   packageName   = $packageName
@@ -15,7 +15,7 @@ $packageArgs = @{
   validExitCodes= @(0, 3010, 1641)
 
   softwareName  = 'SQL Server Management Studio - February 2016'
-  checksum      = '34843BEB2A42D5BDE4822027B9619851'
+  checksum      = '7989638E6E42A3FC14992BBC3F16C19F'
   checksumType  = 'md5'
 }
 

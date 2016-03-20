@@ -72,7 +72,7 @@ function Update-Version
 
             $location = $request.Headers.Location
 
-            $newContents = $contents -replace "\$url\s*=\s*['`"]http.+['`"]", "$url = '$location'"
+            $newContents = $contents -replace "\`$url\s*=\s*['`"]http.+['`"]", "`$url = '$location'"
 
             $tempFile = New-TemporaryFile
 
