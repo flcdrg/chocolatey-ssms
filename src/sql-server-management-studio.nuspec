@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.12500.29-preview</version>
+    <version>13.0.13000.55-preview</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -32,17 +32,15 @@
 	This release also provides the greatest level of support for working with the latest cloud features in Azure SQL Database.
 	</description>
     <releaseNotes>
-#### [SSMS March 2016 Preview (13.0.12500.29)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS March 2016 Preview Refresh (13.0.13000.55)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* Improvement in SSMS web installer to allow navigation using keyboard keys.
-* Improvement in AlwaysEncrypted wizard to support alias data types for encryption.
-* Bug Fix in AlwaysOn 'New Availability Group' wizard to display the correct number of maximum automatic failover targets.
-Linked customer bug requests: https://connect.microsoft.com/SQLServer/feedback/details/2333670/ssms-is-showing-the-wrong-number-of-maximum-automatic-failover-targets/
-* Bug fix in SSMS web installer to fix errors affecting installation.
+* New quick launch toolbar that helps you to quickly find menu items, and options.
+* Improvements in SSMS theming options to add support for an SSMS light theme.
+* Bug fix in SSMS tools menu option to correctly reset query shortcuts if the "Reset to Default" button is pressed.
+* Bug fix in SSMS new project templates to display easily readable template names.
+* Resolved error with viewing the SQL Agent job history in SSMS.
 Linked customer bug requests:
-https://connect.microsoft.com/SQLServer/feedback/details/2181548/sql-server-2016-ctp-3-2-management-studio-setup/
-* Bug fix in SSMS preview release to enable saving maintenance plans on SQL Server 2012 and below.
-* Bug fixes in Backup wizard to allow custom multiple backup names for striped backups, and to display appropriate backup file name if a new name is entered after a storage credential is selected.
+https://connect.microsoft.com/SQLServer/feedback/details/2458860/error-viewing-job-history-microsoft-datawarehouse-sqm/
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
