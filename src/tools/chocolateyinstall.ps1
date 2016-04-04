@@ -11,7 +11,7 @@ $packageArgs = @{
   fileType      = 'EXE'
   url           = $url
 
-  silentArgs    = "/quiet /install /norestart"
+  silentArgs    = "/quiet /install /norestart /log `"$env:TEMP\chocolatey\$($packageName)\$($packageName).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
 
   softwareName  = 'SQL Server Management Studio - March 2016'
