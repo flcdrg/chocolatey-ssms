@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.13000.55-preview</version>
+    <version>13.0.14000.36-preview</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -32,15 +32,18 @@
 	This release also provides the greatest level of support for working with the latest cloud features in Azure SQL Database.
 	</description>
     <releaseNotes>
-#### [SSMS March 2016 Preview Refresh (13.0.13000.55)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS April 2016 Preview (13.0.14000.36)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* New quick launch toolbar that helps you to quickly find menu items, and options.
-* Improvements in SSMS theming options to add support for an SSMS light theme.
-* Bug fix in SSMS tools menu option to correctly reset query shortcuts if the "Reset to Default" button is pressed.
-* Bug fix in SSMS new project templates to display easily readable template names.
-* Resolved error with viewing the SQL Agent job history in SSMS.
+* Improvement in the SSMS installer to add human-readable error messages.
+* Improvement in the Stretch database wizard to add support for predicates.
+* Improvement in the AlwaysEncrypted Powershell commandlet to add key encryption APIs.
+* Bug fix to turn off IntelliSense in the SSMS toolbar if it has been disabled in the Tools,Options dialog.
 Linked customer bug requests:
-https://connect.microsoft.com/SQLServer/feedback/details/2458860/error-viewing-job-history-microsoft-datawarehouse-sqm/
+https://connect.microsoft.com/SQLServer/feedback/details/2555163/sql-2016-rc2-turning-off-intellisense-from-options-does-not-turn-it-off-on-toolbar/
+* Improvements and bug fixes in the Showplan comparison user interface to reduce the spacing used by long query plans.
+* Bug fixes in SSMS to fix issues that caused SSMS to crash when exiting.
+* Bug fixes in the Always Encrypted wizard to retain user permissions during encryption and to allow database detach operations after the wizard is complete.
+* Bug fix in Always Encrypted New Column Master Key dialog to provide feedback on attempt to generate a key using an unsupported Cryptographic Algorithm (CNG) provider.
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->

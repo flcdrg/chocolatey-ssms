@@ -3,7 +3,7 @@
 
 $packageName= 'SQL Server Management Studio'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'http://download.microsoft.com/download/7/A/3/7A3FDD42-8461-48D8-AECB-F126AB60FED8/SSMS-Setup-ENU.exe'
+$url = 'http://download.microsoft.com/download/8/6/3/8639523C-7F12-4CC3-8D2F-908C7A78B4C6/SSMS-Setup-ENU.exe'
 
 $packageArgs = @{
   packageName   = $packageName
@@ -14,8 +14,8 @@ $packageArgs = @{
   silentArgs    = "/quiet /install /norestart /log `"$env:TEMP\chocolatey\$($packageName)\$($packageName).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
 
-  softwareName  = 'SQL Server Management Studio - March 2016'
-  checksum      = '5AB8183BA1C143E4B8971FA19F660F18'
+  softwareName  = 'SQL Server Management Studio - April 2016'
+  checksum      = '6F8E96B876DB7207058AE80FADF2C66A'
   checksumType  = 'md5'
 }
 
