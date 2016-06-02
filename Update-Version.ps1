@@ -9,10 +9,10 @@ function Parse-ReleaseNotes()
     $mainBody = $html.getElementById('mainBody')
     
     ""
-    "#### [$($mainBody.children[1].innerText)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)"
+    "#### [$($mainBody.children[2].innerText)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)"
     ""
 
-    $ul = $mainBody.children[2]
+    $ul = $mainBody.children[3]
 
     foreach ($li in $ul.children)
     {
@@ -29,7 +29,7 @@ function Update-Version
    $content = $response.Content
 
    # The version number for this latest preview is: 13.0.12000.65
-   $isMatch = $content -match "The version number for this latest preview is: (?<version>\d+\.\d+\.\d+\.\d+)"
+   $isMatch = $content -match "The version number for .* is: (?<version>\d+\.\d+\.\d+\.\d+)"
 
    if ($isMatch)
    {
@@ -42,7 +42,7 @@ function Update-Version
        $nuspec = Join-Path $PSScriptRoot "src/sql-server-management-studio.nuspec"
        $contents = [xml] (Get-Content $nuspec -Encoding Utf8)
 
-       $contents.package.metadata.version = "$version-preview"
+       $contents.package.metadata.version = "$version"
        $contents.package.metadata.releaseNotes = $releaseNotes
 
        $contents.Save($nuspec)
@@ -80,7 +80,7 @@ function Update-Version
 
             $hash = Get-FileHash $tempFile -Algorithm MD5
 
-            $tempFile.Delete()
+            #$tempFile.Delete()
 
             #   checksum      = '34843BEB2A42D5BDE4822027B9619851'
             $newContents = $newContents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum      = '$($hash.Hash)'"

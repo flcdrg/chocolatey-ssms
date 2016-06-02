@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.13000.55-preview</version>
+    <version>13.0.15000.23</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -25,22 +25,37 @@
     <tags>sql server management studio admin</tags>
     <summary>SQL Server Management Studio (SSMS) is an integrated environment for accessing, configuring, managing, administering, and developing all components of SQL Server</summary>
     <description>
-	SQL Server Management Studio (SSMS) is an integrated environment for accessing, configuring, managing, administering, and developing all components of SQL Server. SSMS combines a broad group of 
-	graphical tools with a number of rich script editors to provide developers and administrators of all skill levels access to SQL Server.
+SQL Server Management Studio (SSMS) is an integrated environment for accessing, configuring, managing, administering, and developing all components of SQL Server. SSMS combines a broad group of 
+graphical tools with a number of rich script editors to provide developers and administrators of all skill levels access to SQL Server.  This release features improved compatibility with previous versions of SQL Server, 
+a stand-alone web installer, and toast notifications within SSMS when new releases become available.
 	
-	This release supports SQL Server 2016 through SQL Server 2005, and has many new features including improved compatibility with previous versions of SQL Server, a light weight stand-alone web installer, and toast notifications within SSMS when new releases become available. 
-	This release also provides the greatest level of support for working with the latest cloud features in Azure SQL Database.
+#### Supported SQL Server versions
+
+* This version of SSMS works with all supported versions of SQL Server (SQL Server 2008 - SQL Server 2016), and provides the greatest level of support for working with the latest cloud features in Azure SQL Database.
+* There is no explicit block for SQL Server 2000 or SQL Server 2005, but some features may not work properly.
+* Additionally, this version of SSMS can be installed side-by-side with earlier released non-preview versions.
+
+#### Supported Operating systems
+
+This release of SSMS supports the following platforms when used with the latest available service pack:
+Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS March 2016 Preview Refresh (13.0.13000.55)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS June 2016 generally available release (13.0.15000.23)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* New quick launch toolbar that helps you to quickly find menu items, and options.
-* Improvements in SSMS theming options to add support for an SSMS light theme.
-* Bug fix in SSMS tools menu option to correctly reset query shortcuts if the "Reset to Default" button is pressed.
-* Bug fix in SSMS new project templates to display easily readable template names.
-* Resolved error with viewing the SQL Agent job history in SSMS.
+* SSMS is generally available starting with the June 2016 release.
+* New quick find dialog in SSMS that is better integrated into the current document and allows searching via regular expressions.
 Linked customer bug requests:
-https://connect.microsoft.com/SQLServer/feedback/details/2458860/error-viewing-job-history-microsoft-datawarehouse-sqm/
+https://connect.microsoft.com/SQLServer/feedback/details/2735513/quick-find-replace-in-ssms-2016-rc3/
+* Improvements in SSMS installer to allow you to track installation progress and process exit codes for unattended installations via scripts.
+* Bug fix in SSMS context-sensitive F1 help to correctly display help documents and articles.
+* Bug fix in Query Data Store 'Regressed Queries' view that caused SSMS to crash when scrolling.
+* Bug fix in Excel Analysis Services OLEDB connector to allow connections from Excel 2016 to SQL Server Analysis Services.
+* Bug fix in SSMS Connection dialog to show the connection dialog on the same monitor as the main SSMS window in multi-monitor systems.
+Linked customer bug requests:
+https://connect.microsoft.com/SQLServer/feedback/details/724909/connection-dialog-appears-off-screen/https://connect.microsoft.com/SQLServer/feedback/details/755689/sql-server-management-studio-connect-to-server-popup-dialog/
+https://connect.microsoft.com/SQLServer/feedback/details/389165/sql-server-management-studio-gets-confused-dealing-with-multiple-displays/
+* Bug fixes in Always Encrypted experience. Fixed bug where Always Encrypted menu option was not enabled correctly for Stretch databases. Also fixed bug in the Always Encrypted wizard where it was not properly using the SafeNet (Luna SA) HSM provider.
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
