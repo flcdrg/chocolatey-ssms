@@ -81,6 +81,7 @@ function Update-Version
             $hash = Get-FileHash $tempFile -Algorithm MD5
 
             #$tempFile.Delete()
+            Write-Host "Delete $tempFile if no longer required"
 
             #   checksum      = '34843BEB2A42D5BDE4822027B9619851'
             $newContents = $newContents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum      = '$($hash.Hash)'"
