@@ -17,7 +17,7 @@ function Parse-ReleaseNotes()
     foreach ($li in $ul.children)
     {
     
-        "* " + $li.innerText
+        "* " + $li.innerText.Trim()
 
     }
     ""
@@ -33,26 +33,30 @@ function Update-Version
 
    if ($isMatch)
    {
-       $version = $matches.version
+        $version = $matches.version
 
-       Write-Host "Found version $version"
+        Write-Host "Found version $version"
 
-       $releaseNotes = (Parse-ReleaseNotes) -join "`n"
+        $releaseNotes = (Parse-ReleaseNotes) -join "`n"
 
-       $nuspec = Join-Path $PSScriptRoot "src/sql-server-management-studio.nuspec"
-       $contents = [xml] (Get-Content $nuspec -Encoding Utf8)
+        $nuspec = Join-Path $PSScriptRoot "src/sql-server-management-studio.nuspec"
+        $contents = [xml] (Get-Content $nuspec -Encoding Utf8)
 
-       $contents.package.metadata.version = "$version"
-       $contents.package.metadata.releaseNotes = $releaseNotes
+        $contents.package.metadata.version = "$version"
+        $contents.package.metadata.releaseNotes = $releaseNotes
 
-       $contents.Save($nuspec)
+        $contents.Save($nuspec)
+
+        # Reprocess file to make line-endings consistent
+        (Get-Content $nuspec) | Set-Content $nuspec
+
         Write-Host
         Write-Host "Updated nuspec, commit this change and open a pull request to the upstream repository on GitHub!"
 
    }
    else
    {
-       Write-Host "Unable to find the release on the download page. Check the regex above"
+        Write-Host "Unable to find the release on the download page. Check the regex above"
    }
 
 
