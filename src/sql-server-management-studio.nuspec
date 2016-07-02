@@ -22,7 +22,7 @@
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
     <mailingListUrl>https://social.msdn.microsoft.com/forums/en-us/home?forum=sqltools</mailingListUrl>
     <bugTrackerUrl>https://connect.microsoft.com/SQLServer/Feedback</bugTrackerUrl>
-    <tags>sql server management studio admin</tags>
+    <tags>sql server management studio ssms admin</tags>
     <summary>SQL Server Management Studio (SSMS) is an integrated environment for accessing, configuring, managing, administering, and developing all components of SQL Server</summary>
     <description>
 SQL Server Management Studio (SSMS) is an integrated environment for accessing, configuring, managing, administering, and developing all components of SQL Server. SSMS combines a broad group of 
