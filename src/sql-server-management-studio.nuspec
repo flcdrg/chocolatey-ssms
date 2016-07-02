@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.15000.23</version>
+    <version>13.0.15500.91</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -41,21 +41,43 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS June 2016 generally available release (13.0.15000.23)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS July 2016 generally available release (13.0.15500.91)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* SSMS is generally available starting with the June 2016 release.
-* New quick find dialog in SSMS that is better integrated into the current document and allows searching via regular expressions.
-Linked customer bug requests:
-https://connect.microsoft.com/SQLServer/feedback/details/2735513/quick-find-replace-in-ssms-2016-rc3/
-* Improvements in SSMS installer to allow you to track installation progress and process exit codes for unattended installations via scripts.
-* Bug fix in SSMS context-sensitive F1 help to correctly display help documents and articles.
-* Bug fix in Query Data Store 'Regressed Queries' view that caused SSMS to crash when scrolling.
-* Bug fix in Excel Analysis Services OLEDB connector to allow connections from Excel 2016 to SQL Server Analysis Services.
-* Bug fix in SSMS Connection dialog to show the connection dialog on the same monitor as the main SSMS window in multi-monitor systems.
-Linked customer bug requests:
-https://connect.microsoft.com/SQLServer/feedback/details/724909/connection-dialog-appears-off-screen/https://connect.microsoft.com/SQLServer/feedback/details/755689/sql-server-management-studio-connect-to-server-popup-dialog/
-https://connect.microsoft.com/SQLServer/feedback/details/389165/sql-server-management-studio-gets-confused-dealing-with-multiple-displays/
-* Bug fixes in Always Encrypted experience. Fixed bug where Always Encrypted menu option was not enabled correctly for Stretch databases. Also fixed bug in the Always Encrypted wizard where it was not properly using the SafeNet (Luna SA) HSM provider.
+* Support for Azure SQL Data Warehouse in SSMS.
+* Significant updates to the SQL Server PowerShell module. This includes a new [SQL PowerShell module and new CMDLETs for Always Encrypted, SQL Agent, and SQL Error Logs](https://blogs.technet.microsoft.com/dataplatforminsider/2016/06/30/sql-powershell-july-2016-update).
+* Support for PowerShell script generation in the Always Encrypted wizard.
+* Significantly improved connection times to Azure SQL databases.
+* New ‘Backup to URL’ dialog to support the creation of Azure storage credentials for SQL Server 2016 database backups. This provides a more streamlined experience for storing database backups in an Azure storage account.
+* New Restore dialog to streamline restoring a SQL Server 2016 database backup from the Microsoft Azure storage service.
+* Improved support for SQL Server 2016 (1200 compatibility level) tabular databases in the Analysis Services Process dialog.
+* Bug fix in SSMS query designer to allow adding tables to the designer if a user doesn’t have SELECT permissions on them.
+* Bug fix to add IntelliSense support for 'TRY_CAST()', and 'TRY_CONVERT()' functions.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2453461](https://connect.microsoft.com/SQLServer/feedback/details/2453461/sql-server-2012-issue-with-try-cast).
+* Bug fix in PowerShell module to enable loading of ‘SQLAS’ Analysis Services extension.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2544902](https://connect.microsoft.com/SQLServer/feedback/details/2544902/ssms-march-2016-refresh-sqlps-failed-to-load-the-sqlas-extension).
+* Bug fix in the SSMS editor window to allow drag-and-drop open of Sql files.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2690658](https://connect.microsoft.com/SQLServer/feedback/details/2690658/cannot-drag-sql-files-into-management-studios).
+* Bug fix in Profiler to fix Profiler crash when exiting.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2616550](https://connect.microsoft.com/SQLServer/feedback/details/2616550/sql-server-2016-rc2-profiler-version-13-0-1300-275-wont-close-after-trace-is-started-even-after-trace-is-stopped).  
+[Microsoft Connect item \#2319968](https://connect.microsoft.com/SQLServer/Feedback/Details/2319968).
+* Bug fix in SSMS to prevent crash when trying to edit a join link in the SSMS table designer.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2721052](https://connect.microsoft.com/SQLServer/feedback/details/2721052/ssms-view-design-mode-right-click-on-join-crashes-ssms).
+* Bug fix in SSMS to enable database script generation for db_owner role members.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2869241](https://connect.microsoft.com/SQLServer/feedback/details/2869241/error-with-script-database-as-create-to-in-ssms-2008r2-and-ssms-2016-june).
+* Bug fix in SSMS editor to remove the delay in closing a query tab if the server has gone offline.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2656058](https://connect.microsoft.com/SQLServer/feedback/details/2656058/ssms-2014-2016-query-tab-takes-significantly-longer-to-close-if-the-instance-it-was-connected-to-is-now-offline).
+* Bug fix to enable Backup option in SQL Server Express databases.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2801910](https://connect.microsoft.com/SQLServer/feedback/details/2801910/ssms-2016-backup-option-not-appearing-in-tasks).  
+[Microsoft Connect item \#2874434](https://connect.microsoft.com/SQLServer/feedback/details/2874434/backup-missing-from-tasks-context-menu-in-ssms-2016-when-you-are-connected-to-an-express-instance).
+* Bug fix in Analysis Services to correctly show the Data Feed provider for multi-dimensional Analysis Services models.
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
