@@ -16,8 +16,28 @@ function Parse-ReleaseNotes()
 
     foreach ($li in $ul.children)
     {
-    
-        "* " + $li.innerText.Trim()
+        # linebreaks
+       $li.getElementsByTagName("BR") | ForEach-Object {
+            $mdText = $html.createTextNode("  `n")
+
+            [void] $_.replaceNode($mdText)
+        }
+
+        # process hyperlinks
+        $li.getElementsByTagName("A") | ForEach-Object {
+            $mdText = $html.createTextNode("[$($_.innerText)]($($_.href))")
+
+            [void] $_.replaceNode($mdText)
+        }
+
+        # emphasis
+        $li.getElementsByTagName("EM") | ForEach-Object {
+            $mdText = $html.createTextNode("*$($_.innerText)*")
+
+            [void] $_.replaceNode($mdText)
+        }
+
+        "* " + $li.innerText.Replace("#", "\#").Trim()
 
     }
     ""
@@ -48,7 +68,7 @@ function Update-Version
         $contents.Save($nuspec)
 
         # Reprocess file to make line-endings consistent
-        (Get-Content $nuspec) | Set-Content $nuspec
+        (Get-Content $nuspec -Encoding UTF8) | Set-Content $nuspec -Encoding UTF8
 
         Write-Host
         Write-Host "Updated nuspec, commit this change and open a pull request to the upstream repository on GitHub!"
