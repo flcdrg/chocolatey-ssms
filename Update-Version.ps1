@@ -79,7 +79,6 @@ function Update-Version
         Write-Host "Unable to find the release on the download page. Check the regex above"
    }
 
-
    $isMatch = $content -match '\<a href\=\"(?<url>http.+=\d+)\"\>Download SQL Server Management Studio'
 
    if ($isMatch)
@@ -94,9 +93,12 @@ function Update-Version
         {
             # $url        = 'http://download.microsoft.com/download/E/E/1/EE12CC0F-A1A5-4B55-9425-2AFBB2D63979/SSMS-Full-Setup.exe'
 
-            $location = $request.Headers.Location
+            $location = [UriBuilder] $request.Headers.Location
 
-            $newContents = $contents -replace "\`$url\s*=\s*['`"]http.+['`"]", "`$url = '$location'"
+            # Switch to https
+            $location.Scheme = "https"
+
+            $newContents = $contents -replace "\`$url\s*=\s*['`"]http.+['`"]", "`$url = '$($location.Uri.ToString())'"
 
             $tempFile = New-TemporaryFile
 
