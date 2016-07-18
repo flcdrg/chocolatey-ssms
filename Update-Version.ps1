@@ -9,38 +9,50 @@ function Parse-ReleaseNotes()
     $mainBody = $html.getElementById('mainBody')
     
     ""
-    "#### [$($mainBody.children[2].innerText)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)"
-    ""
 
-    $ul = $mainBody.children[3]
-
-    foreach ($li in $ul.children)
-    {
-        # linebreaks
-       $li.getElementsByTagName("BR") | ForEach-Object {
-            $mdText = $html.createTextNode("  `n")
-
-            [void] $_.replaceNode($mdText)
+    # find first H3
+    foreach ($n in $mainBody.children) {
+        if ($n.nodeName -eq "H3") {
+            "#### [$($n.innerText)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)"
+            ""
+            break;
         }
-
-        # process hyperlinks
-        $li.getElementsByTagName("A") | ForEach-Object {
-            $mdText = $html.createTextNode("[$($_.innerText)]($($_.href))")
-
-            [void] $_.replaceNode($mdText)
-        }
-
-        # emphasis
-        $li.getElementsByTagName("EM") | ForEach-Object {
-            $mdText = $html.createTextNode("*$($_.innerText)*")
-
-            [void] $_.replaceNode($mdText)
-        }
-
-        "* " + $li.innerText.Replace("#", "\#").Trim()
-
     }
-    ""
+
+    # find first UL
+    foreach ($ul in $mainBody.children) {
+        if ($ul.nodeName -eq "UL") {
+
+            foreach ($li in $ul.children)
+            {
+                # linebreaks
+               $li.getElementsByTagName("BR") | ForEach-Object {
+                    $mdText = $html.createTextNode("  `n")
+
+                    [void] $_.replaceNode($mdText)
+                }
+
+                # process hyperlinks
+                $li.getElementsByTagName("A") | ForEach-Object {
+                    $mdText = $html.createTextNode("[$($_.innerText)]($($_.href))")
+
+                    [void] $_.replaceNode($mdText)
+                }
+
+                # emphasis
+                $li.getElementsByTagName("EM") | ForEach-Object {
+                    $mdText = $html.createTextNode("*$($_.innerText)*")
+
+                    [void] $_.replaceNode($mdText)
+                }
+
+                "* " + $li.innerText.Replace("#", "\#").Trim()
+
+            }
+            ""
+            break;
+        }
+    }
 }
 
 function Update-Version
@@ -97,12 +109,15 @@ function Update-Version
 
             # Switch to https
             $location.Scheme = "https"
+            $location.Port = 443
 
             $newContents = $contents -replace "\`$url\s*=\s*['`"]http.+['`"]", "`$url = '$($location.Uri.ToString())'"
 
+            Write-Host "Downloading $($location.Uri)"
+
             $tempFile = New-TemporaryFile
 
-            Invoke-WebRequest -Uri $location -OutFile $tempFile
+            Invoke-WebRequest -Uri $location.Uri -OutFile $tempFile
 
             $hash = Get-FileHash $tempFile -Algorithm MD5
 
