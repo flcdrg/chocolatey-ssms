@@ -4,7 +4,7 @@
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.15600.2</version>
+    <version>13.0.15700.28</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <!-- ============================== -->
@@ -41,13 +41,37 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS July 2016 hotfix update release (13.0.15600.2)](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS 16.3 (August 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* Bug fix in SSMS to enable missing right-click menu items.  
+* SSMS monthly releases are now branded numerically.
+* [New authentication option 'Active Directory Universal Authentication'](https://azure.microsoft.com/documentation/articles/sql-database-ssms-mfa-authentication/). This is a token-based authentication mechanism driven by Azure Active Directory that supports multi-factor, password, and integrated authentication mechanisms.
+* New Extended Events templates matching the functionality of SQL Server Profiler templates [(Microsoft Connect item \#2543925).](https://connect.microsoft.com/SQLServer/feedback/details/2543925/sql-server-extended-events-profiler-tool). Learn more about the included [SQL Server Profiler templates](https://msdn.microsoft.com/library/ms190176.aspx).
+* New Create database and database properties dialogs for Azure SQL databases.
+* New 'Get-SqlLogin' and 'Remove-SqlLogin' cmdlets to help perform SQL Server login management using PowerShell.  
 *Linked customer bug requests:*  
-[Microsoft Connect item \#2883440](https://connect.microsoft.com/SQLServer/feedback/details/2883440/lost-table-design-and-edit-top-n-rows-in-tables-context-menu)  
-[Microsoft Connect item \#2909644](https://connect.microsoft.com/SQLServer/feedback/details/2909644/ssms-2016-is-missing-edit-options-against-sql-express-2014)  
-[Microsoft Connect item \#2924345](https://connect.microsoft.com/SQLServer/feedback/details/2924345/some-ssms-object-explorer-right-click-menu-options-missing-in-july-update)
+[Microsoft Connect item \#2588952.](https://connect.microsoft.com/SQLServer/feedback/details/2588952/)
+* New PowerShell cmdlet 'New-SqlColumnMasterKeySettings' that adds support for creation of column master keys for arbitrary providers and key paths.
+* New 'Create database' dialog to streamline creation of Azure SQL databases in SSMS&gt;
+* Support for filtering in the 'Databases' node of SSMS Object Explorer. Navigate to the 'Databases' node in Object explorer and click the filter icon in the Object explorer toolbar to filter the list of databases.
+* Support for Azure-Resource Manager (ARM) type storage accounts in the Backup and Restore wizards.
+* [Intial beta support for high-resolution displays](https://blogs.msdn.microsoft.com/sqlreleaseservices/ssms-highdpi-support/).  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#1129301](https://connect.microsoft.com/SQLServer/feedback/details/1129301/management-studio-is-unusable-on-a-4k-display), [Microsoft Connect item \#1858763](https://connect.microsoft.com/SQLServer/feedback/details/1858763/), [Microsoft Connect item \#1852671](https://connect.microsoft.com/SQLServer/feedback/details/1852671/), [Microsoft Connect item \#1487643](https://connect.microsoft.com/SQLServer/feedback/details/1487643/), [Microsoft Connect item \#1355641](https://connect.microsoft.com/SQLServer/feedback/details/1355641/), [Microsoft Connect item \#2161595](https://connect.microsoft.com/SQLServer/feedback/details/2161595/), [Microsoft Connect item \#1854041](https://connect.microsoft.com/SQLServer/feedback/details/1854041/), [Microsoft Connect item \#1055617](https://connect.microsoft.com/SQLServer/feedback/details/1055617/), [Microsoft Connect item \#2448774](https://connect.microsoft.com/SQLServer/feedback/details/2448774/), [Microsoft Connect item \#1521405](https://connect.microsoft.com/SQLServer/feedback/details/1521405/), [Microsoft Connect item \#2117853](https://connect.microsoft.com/SQLServer/feedback/details/2117853/), [Microsoft Connect item \#2014256](https://connect.microsoft.com/SQLServer/feedback/details/2014256/), [Microsoft Connect item \#2162218](https://connect.microsoft.com/SQLServer/feedback/details/2162218/), [Microsoft Connect item \#2344551](https://connect.microsoft.com/SQLServer/feedback/details/2344551/), [Microsoft Connect item \#1664436](https://connect.microsoft.com/SQLServer/feedback/details/1664436/), [Microsoft Connect item \#2554043](https://connect.microsoft.com/SQLServer/feedback/details/2554043/), [Microsoft Connect item \#2983216](https://connect.microsoft.com/SQLServer/feedback/details/2983216/), [Microsoft Connect item \#2021706](https://connect.microsoft.com/SQLServer/feedback/details/2021706/)
+* Improvements in Database Engine Tuning Advisor (DTA) to support automatically reading a workload from the SQL Server Query Store.
+* Improvements in Database Engine Tuning Advisor (DTA) to display index recommendations for clustered columnstore indexes, non-clustered columnstore indexes, and rowstore indexes.
+* Support for sending Database Console (DBCC) commands using SQL Server Analysis Services PowerShell cmdlets.
+* Bug fix to view cleartext of decrypted AlwaysEncrypted large object (LOB) columns in SSMS.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2413024](https://connect.microsoft.com/SQLServer/feedback/details/2413024/cannot-view-cleartext-of-alwaysencrypted-lob-columns-in-ssms)
+* Bug fix in Always Encrypted dialog to fix crash when Windows visual styles aren't enabled (e.g. enabling high contrast display).
+* Bug fix for 'Method not found' error preventing connection to SQL Server instances.
+* Bug fix for SSMS crash when creating a partition function with datetime offset.
+* Bug fix to add remove Microsoft .NET 3.5 requirement for starting Distributed Replay administration tool (DReplay.exe).
+* Bug fix in Analysis Services Deployment wizard to support fully-qualified server names.
+* Bug fix in SSMS to display partitions in Analysis Services tabular models with a 2016 compatibility model.  
+*Linked customer bug requests:*  
+[Microsoft Connect item \#2845053](https://connect.microsoft.com/SQLServer/feedback/details/2845053/ssms-cannot-display-partitions-in-tabular-models-in-2016-compatibility-level)
+* Performance improvements and bug fixes in Analysis services tabular models, and SQL Server Shared Management Objects (SMO).
 </releaseNotes>
     <!-- =============================== -->
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
