@@ -20,6 +20,8 @@ function Parse-ReleaseNotes()
     }
 
     # find first UL
+    $h3count = 0
+
     foreach ($ul in $mainBody.children) {
         if ($ul.nodeName -eq "UL") {
 
@@ -48,11 +50,20 @@ function Parse-ReleaseNotes()
 
                 "* " + $li.innerText.Replace("#", "\#").Trim()
 
+            }            
+        }
+        # stop when we find the next heading
+        elseif ($ul.nodeName -eq "H3") {
+            $h3count++
+
+            if ($h3count -eq 2) {
+                break
             }
-            ""
-            break;
         }
     }
+
+    ""            
+
 }
 
 function Update-Version
@@ -119,7 +130,7 @@ function Update-Version
 
             Invoke-WebRequest -Uri $location.Uri -OutFile $tempFile
 
-            $hash = Get-FileHash $tempFile -Algorithm MD5
+            $hash = Get-FileHash $tempFile -Algorithm SHA256
 
             #$tempFile.Delete()
             Write-Host "Delete $tempFile if no longer required"

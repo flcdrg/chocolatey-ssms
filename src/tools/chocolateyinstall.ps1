@@ -1,6 +1,5 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-
 (Get-WmiObject -Class Win32_OperatingSystem).Version -match "(?<Major>\d+).(?<Minor>\d+).(?<Build>\d+)" | Out-Null
 
 if ($Matches.Major -eq 6 -and $Matches.Minor -eq 3)
@@ -14,7 +13,7 @@ if ($Matches.Major -eq 6 -and $Matches.Minor -eq 3)
 
 $packageName= 'SQL Server Management Studio'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/4/7/2/47218E85-5903-4EF4-B54E-3B71DD558017/SSMS-Setup-ENU.exe'
+$url = 'https://download.microsoft.com/download/B/B/B/BBB7F696-7DCF-4FE7-B0B9-AE846AED8B94/SSMS-Setup-ENU.exe'
 
 $packageArgs = @{
   packageName   = $packageName
@@ -26,8 +25,8 @@ $packageArgs = @{
   validExitCodes= @(0, 3010, 1641)
 
   softwareName  = 'SQL Server Management Studio*'
-  checksum      = '8C74AB7A8EFA87C74323ED80AD3E1379'
-  checksumType  = 'md5'
+  checksum      = 'C6D1F061F4573F7D9B36803646BB1D05B018E2E4F271CB4DFE8FAAA857E02D72'
+  checksumType  = 'SHA256'
 }
 
 Install-ChocolateyPackage @packageArgs

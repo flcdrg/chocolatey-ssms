@@ -2,24 +2,17 @@
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>sql-server-management-studio</id>
-    <version>13.0.15700.28</version>
+    <version>13.0.15800.18</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
-    <!-- ============================== -->
-    <!-- == SOFTWARE SPECIFIC SECTION == -->
-    <!-- This section is about the software itself -->
     <title>SQL Server Management Studio</title>
     <authors>Microsoft</authors>
-    <!-- projectUrl is required for the community feed -->
     <projectUrl>https://msdn.microsoft.com/en-us/library/mt238290.aspx</projectUrl>
     <iconUrl>http://cdn.rawgit.com/flcdrg/chocolatey-ssms/master/ssms-icon.png</iconUrl>
     <copyright>Microsoft 2016</copyright>
-    <!-- If there is a license Url available, it is is required for the community feed -->
     <licenseUrl>https://msdn.microsoft.com/en-us/library/mt592003.aspx</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
     <mailingListUrl>https://social.msdn.microsoft.com/forums/en-us/home?forum=sqltools</mailingListUrl>
     <bugTrackerUrl>https://connect.microsoft.com/SQLServer/Feedback</bugTrackerUrl>
     <tags>sql server management studio ssms admin</tags>
@@ -41,54 +34,47 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS 16.3 (August 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS 16.4 (September 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* SSMS monthly releases are now branded numerically.
-* [New authentication option 'Active Directory Universal Authentication'](https://azure.microsoft.com/documentation/articles/sql-database-ssms-mfa-authentication/). This is a token-based authentication mechanism driven by Azure Active Directory that supports multi-factor, password, and integrated authentication mechanisms.
-* New Extended Events templates matching the functionality of SQL Server Profiler templates [(Microsoft Connect item \#2543925).](https://connect.microsoft.com/SQLServer/feedback/details/2543925/sql-server-extended-events-profiler-tool). Learn more about the included [SQL Server Profiler templates](https://msdn.microsoft.com/library/ms190176.aspx).
-* New Create database and database properties dialogs for Azure SQL databases.
-* New 'Get-SqlLogin' and 'Remove-SqlLogin' cmdlets to help perform SQL Server login management using PowerShell.  
-*Linked customer bug requests:*  
-[Microsoft Connect item \#2588952.](https://connect.microsoft.com/SQLServer/feedback/details/2588952/)
-* New PowerShell cmdlet 'New-SqlColumnMasterKeySettings' that adds support for creation of column master keys for arbitrary providers and key paths.
-* New 'Create database' dialog to streamline creation of Azure SQL databases in SSMS&gt;
-* Support for filtering in the 'Databases' node of SSMS Object Explorer. Navigate to the 'Databases' node in Object explorer and click the filter icon in the Object explorer toolbar to filter the list of databases.
-* Support for Azure-Resource Manager (ARM) type storage accounts in the Backup and Restore wizards.
-* [Intial beta support for high-resolution displays](https://blogs.msdn.microsoft.com/sqlreleaseservices/ssms-highdpi-support/).  
-*Linked customer bug requests:*  
-[Microsoft Connect item \#1129301](https://connect.microsoft.com/SQLServer/feedback/details/1129301/management-studio-is-unusable-on-a-4k-display), [Microsoft Connect item \#1858763](https://connect.microsoft.com/SQLServer/feedback/details/1858763/), [Microsoft Connect item \#1852671](https://connect.microsoft.com/SQLServer/feedback/details/1852671/), [Microsoft Connect item \#1487643](https://connect.microsoft.com/SQLServer/feedback/details/1487643/), [Microsoft Connect item \#1355641](https://connect.microsoft.com/SQLServer/feedback/details/1355641/), [Microsoft Connect item \#2161595](https://connect.microsoft.com/SQLServer/feedback/details/2161595/), [Microsoft Connect item \#1854041](https://connect.microsoft.com/SQLServer/feedback/details/1854041/), [Microsoft Connect item \#1055617](https://connect.microsoft.com/SQLServer/feedback/details/1055617/), [Microsoft Connect item \#2448774](https://connect.microsoft.com/SQLServer/feedback/details/2448774/), [Microsoft Connect item \#1521405](https://connect.microsoft.com/SQLServer/feedback/details/1521405/), [Microsoft Connect item \#2117853](https://connect.microsoft.com/SQLServer/feedback/details/2117853/), [Microsoft Connect item \#2014256](https://connect.microsoft.com/SQLServer/feedback/details/2014256/), [Microsoft Connect item \#2162218](https://connect.microsoft.com/SQLServer/feedback/details/2162218/), [Microsoft Connect item \#2344551](https://connect.microsoft.com/SQLServer/feedback/details/2344551/), [Microsoft Connect item \#1664436](https://connect.microsoft.com/SQLServer/feedback/details/1664436/), [Microsoft Connect item \#2554043](https://connect.microsoft.com/SQLServer/feedback/details/2554043/), [Microsoft Connect item \#2983216](https://connect.microsoft.com/SQLServer/feedback/details/2983216/), [Microsoft Connect item \#2021706](https://connect.microsoft.com/SQLServer/feedback/details/2021706/)
-* Improvements in Database Engine Tuning Advisor (DTA) to support automatically reading a workload from the SQL Server Query Store.
-* Improvements in Database Engine Tuning Advisor (DTA) to display index recommendations for clustered columnstore indexes, non-clustered columnstore indexes, and rowstore indexes.
-* Support for sending Database Console (DBCC) commands using SQL Server Analysis Services PowerShell cmdlets.
-* Bug fix to view cleartext of decrypted AlwaysEncrypted large object (LOB) columns in SSMS.  
-*Linked customer bug requests:*  
-[Microsoft Connect item \#2413024](https://connect.microsoft.com/SQLServer/feedback/details/2413024/cannot-view-cleartext-of-alwaysencrypted-lob-columns-in-ssms)
-* Bug fix in Always Encrypted dialog to fix crash when Windows visual styles aren't enabled (e.g. enabling high contrast display).
-* Bug fix for 'Method not found' error preventing connection to SQL Server instances.
-* Bug fix for SSMS crash when creating a partition function with datetime offset.
-* Bug fix to add remove Microsoft .NET 3.5 requirement for starting Distributed Replay administration tool (DReplay.exe).
-* Bug fix in Analysis Services Deployment wizard to support fully-qualified server names.
-* Bug fix in SSMS to display partitions in Analysis Services tabular models with a 2016 compatibility model.  
-*Linked customer bug requests:*  
-[Microsoft Connect item \#2845053](https://connect.microsoft.com/SQLServer/feedback/details/2845053/ssms-cannot-display-partitions-in-tabular-models-in-2016-compatibility-level)
-* Performance improvements and bug fixes in Analysis services tabular models, and SQL Server Shared Management Objects (SMO).
+* New 'Read-SqlTableData', 'Read-SqlViewData', and 'Write-SqlTableData' cmdlets to view and write data using PowerShell.  
+[Trello Read-SqlTableData Card](https://trello.com/c/FXVUNJ8x/131-read-sqltabledata)  
+[Microsoft Connect item \#2685363](https://connect.microsoft.com/SQLServer/feedback/details/2685363)
+* New 'Add-SqlLogin' cmdlet to enable new login management scenarios using PowerShell.  
+[Microsoft Connect item \#2588952](https://connect.microsoft.com/SQLServer/feedback/details/2588952)
+* Improved support and usability for users connecting to various national clouds.
+* Fixed an issue where an Out Of Memory Exceptions were being thrown.  
+[Microsoft Connect item \#3062914](https://connect.microsoft.com/SQLServer/feedback/details/3062914)  
+[Microsoft Connect item \#3074856](https://connect.microsoft.com/SQLServer/feedback/details/3074856)
+* Fixed an issue where filtering by schema was not a valid filter option.  
+[Microsoft Connect item \#3058105](https://connect.microsoft.com/SQLServer/feedback/details/3058105)  
+[Microsoft Connect item \#3101136](https://connect.microsoft.com/SQLServer/feedback/details/3101136)
+* Fixed an issue where the Monitor window for a stretched database would not be accessible.
+* Fixed an issue where the F1 Help always opened online content. Users can now select whether they prefer online or offline help via the "Set Help Preference" in the Help menu.  
+[Microsoft Connect item \#2826366](https://connect.microsoft.com/SQLServer/feedback/details/2826366)
+* Fixed an issue where scripting out a 1200-level Analysis Services tabular model wouldn’t strip out the password for scripting, even though the server version had [client model object is now sync’d before scripting].
+* Fixed an issue where 'SELECT TOP N ROWS' option generated deprecated syntax for the the TOP operator.  
+[Microsoft Connect item \#3065435](https://connect.microsoft.com/SQLServer/feedback/details/3065435)
+* Fixed various layout issues throughout SSMS, including the Login Properties page and Advanced Query Execution Options.  
+[Microsoft Connect item \#3058199](https://connect.microsoft.com/SQLServer/feedback/details/3058199)  
+[Microsoft Connect item \#3079122](https://connect.microsoft.com/SQLServer/feedback/details/3058199)  
+[Microsoft Connect item \#3071384](https://connect.microsoft.com/SQLServer/feedback/details/3071384)
+* Fixed an issue where a solution was created automatically whenever a user opened a new query window.  
+[Microsoft Connect item \#2924667](https://connect.microsoft.com/SQLServer/feedback/details/2924667)  
+[Microsoft Connect item \#2917742](https://connect.microsoft.com/SQLServer/feedback/details/2917742)  
+[Microsoft Connect item \#2612635](https://connect.microsoft.com/SQLServer/feedback/details/2612635)
+* Fixed an issue where temporal tables could not be expanded in Object Explorer when in system databases.  
+[Microsoft Connect item \#2551649](https://connect.microsoft.com/SQLServer/feedback/details/2551649)
+* Fixed an issue where SSMS runs a query to SELECT @@trancount after executing a batch.  
+[Microsoft Connect item \#3042364](https://connect.microsoft.com/SQLServer/feedback/details/3042364)
+* Fixed an issue in Analysis Services where creating a script from a server's properties page resulted in a hidden connection dialog.
+* Fixed an issue where Ctrl+Q would not select the Quick Launch toolbar.
+* Fixed an issue where changing the MaxSize of a database using the Server Properties dialog was broken for databases &gt; 2 TB.  
+[Microsoft Connect item \#1231091](https://connect.microsoft.com/SQLServer/feedback/details/1231091)
+* Fixed an issue where the Restore Database wizard wouldn't accept filenames with leading whitespaces:  
+[Microsoft Connect item \#2395147](https://connect.microsoft.com/SQLServer/feedback/details/2395147)
 </releaseNotes>
-    <!-- =============================== -->
-    <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
-    <!--<dependencies>
-      <dependency id="" version="__MINIMUM_VERSION__" />
-      <dependency id="" version="[__EXACT_VERSION__]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_INCLUSIVE]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_EXCLUSIVE)" />
-      <dependency id="" />
-    </dependencies>-->
-    <!--<provides>NOT YET IMPLEMENTED</provides>-->
-    <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
-    <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
   </metadata>
   <files>
-    <!-- this section controls what actually gets packaged into the Chocolatey package -->
     <file src="tools\**" target="tools" />
-    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
   </files>
 </package>
