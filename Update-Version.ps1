@@ -72,7 +72,7 @@ function Update-Version
    $content = $response.Content
 
    # The version number for this latest preview is: 13.0.12000.65
-   $isMatch = $content -match "The version number .*: (?<version>\d+\.\d+\.\d+\.\d+)"
+   $isMatch = $content -match "(The version number)|(The build number for this release).*: (?<version>\d+\.\d+\.\d+\.\d+)"
 
    if ($isMatch)
    {

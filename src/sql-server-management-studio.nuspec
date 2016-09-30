@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>sql-server-management-studio</id>
-    <version>13.0.15800.18</version>
+    <version>13.0.15900.1</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <title>SQL Server Management Studio</title>
@@ -34,8 +34,10 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS 16.4 (September 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS 16.4.1 (September 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
+* Fixed an issue where attempting to ALTER/Modify a Stored Procedure fails:  
+[Microsoft Connect item \#3103831](https://connect.microsoft.com/SQLServer/feedback/details/3103831)
 * New 'Read-SqlTableData', 'Read-SqlViewData', and 'Write-SqlTableData' cmdlets to view and write data using PowerShell.  
 [Trello Read-SqlTableData Card](https://trello.com/c/FXVUNJ8x/131-read-sqltabledata)  
 [Microsoft Connect item \#2685363](https://connect.microsoft.com/SQLServer/feedback/details/2685363)
