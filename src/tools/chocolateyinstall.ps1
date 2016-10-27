@@ -13,7 +13,7 @@ if ($Matches.Major -eq 6 -and $Matches.Minor -eq 3)
 
 $packageName= 'SQL Server Management Studio'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/7/8/0/7808D223-499D-4577-812B-9A2A60048841/SSMS-Setup-ENU.exe'
+$url = 'https://download.microsoft.com/download/C/B/C/CBCFAAD1-2348-4119-B093-199EE7AADCBC/SSMS-Setup-ENU.exe'
 
 $packageArgs = @{
   packageName   = $packageName
@@ -25,7 +25,7 @@ $packageArgs = @{
   validExitCodes= @(0, 3010, 1641)
 
   softwareName  = 'SQL Server Management Studio*'
-  checksum      = 'F6A0F1BF34ACF16E8543B10C37105CA3CEEACC4DA3ECA7D8C34D6DE5498605EC'
+  checksum      = '1AFEAE4D281333BEA6A2FA495D15D0C6E187E0A81927CAF03D2F44AB90E0F33B'
   checksumType  = 'SHA256'
 }
 

@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>sql-server-management-studio</id>
-    <version>13.0.15900.1</version>
+    <version>13.0.16000.28</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <title>SQL Server Management Studio</title>
@@ -34,46 +34,21 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS 16.4.1 (September 2016) release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS 16.5 release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* Fixed an issue where attempting to ALTER/Modify a Stored Procedure fails:  
-[Microsoft Connect item \#3103831](https://connect.microsoft.com/SQLServer/feedback/details/3103831)
-* New 'Read-SqlTableData', 'Read-SqlViewData', and 'Write-SqlTableData' cmdlets to view and write data using PowerShell.  
-[Trello Read-SqlTableData Card](https://trello.com/c/FXVUNJ8x/131-read-sqltabledata)  
-[Microsoft Connect item \#2685363](https://connect.microsoft.com/SQLServer/feedback/details/2685363)
-* New 'Add-SqlLogin' cmdlet to enable new login management scenarios using PowerShell.  
-[Microsoft Connect item \#2588952](https://connect.microsoft.com/SQLServer/feedback/details/2588952)
-* Improved support and usability for users connecting to various national clouds.
-* Fixed an issue where an Out Of Memory Exceptions were being thrown.  
-[Microsoft Connect item \#3062914](https://connect.microsoft.com/SQLServer/feedback/details/3062914)  
-[Microsoft Connect item \#3074856](https://connect.microsoft.com/SQLServer/feedback/details/3074856)
-* Fixed an issue where filtering by schema was not a valid filter option.  
-[Microsoft Connect item \#3058105](https://connect.microsoft.com/SQLServer/feedback/details/3058105)  
-[Microsoft Connect item \#3101136](https://connect.microsoft.com/SQLServer/feedback/details/3101136)
-* Fixed an issue where the Monitor window for a stretched database would not be accessible.
-* Fixed an issue where the F1 Help always opened online content. Users can now select whether they prefer online or offline help via the "Set Help Preference" in the Help menu.  
-[Microsoft Connect item \#2826366](https://connect.microsoft.com/SQLServer/feedback/details/2826366)
-* Fixed an issue where scripting out a 1200-level Analysis Services tabular model wouldn’t strip out the password for scripting, even though the server version had [client model object is now sync’d before scripting].
-* Fixed an issue where 'SELECT TOP N ROWS' option generated deprecated syntax for the the TOP operator.  
-[Microsoft Connect item \#3065435](https://connect.microsoft.com/SQLServer/feedback/details/3065435)
-* Fixed various layout issues throughout SSMS, including the Login Properties page and Advanced Query Execution Options.  
-[Microsoft Connect item \#3058199](https://connect.microsoft.com/SQLServer/feedback/details/3058199)  
-[Microsoft Connect item \#3079122](https://connect.microsoft.com/SQLServer/feedback/details/3058199)  
-[Microsoft Connect item \#3071384](https://connect.microsoft.com/SQLServer/feedback/details/3071384)
-* Fixed an issue where a solution was created automatically whenever a user opened a new query window.  
-[Microsoft Connect item \#2924667](https://connect.microsoft.com/SQLServer/feedback/details/2924667)  
-[Microsoft Connect item \#2917742](https://connect.microsoft.com/SQLServer/feedback/details/2917742)  
-[Microsoft Connect item \#2612635](https://connect.microsoft.com/SQLServer/feedback/details/2612635)
-* Fixed an issue where temporal tables could not be expanded in Object Explorer when in system databases.  
-[Microsoft Connect item \#2551649](https://connect.microsoft.com/SQLServer/feedback/details/2551649)
-* Fixed an issue where SSMS runs a query to SELECT @@trancount after executing a batch.  
-[Microsoft Connect item \#3042364](https://connect.microsoft.com/SQLServer/feedback/details/3042364)
-* Fixed an issue in Analysis Services where creating a script from a server's properties page resulted in a hidden connection dialog.
-* Fixed an issue where Ctrl+Q would not select the Quick Launch toolbar.
-* Fixed an issue where changing the MaxSize of a database using the Server Properties dialog was broken for databases &gt; 2 TB.  
-[Microsoft Connect item \#1231091](https://connect.microsoft.com/SQLServer/feedback/details/1231091)
-* Fixed an issue where the Restore Database wizard wouldn't accept filenames with leading whitespaces:  
-[Microsoft Connect item \#2395147](https://connect.microsoft.com/SQLServer/feedback/details/2395147)
+* Fixed an issue where a crash could occur when a database with table name containing “;:” was clicked on.
+* Fixed an issue where changes made to the Model page in AS Tabular Database Properties window would script out the original definition. [Microsoft Connect Item: 3080744](https://connect.microsoft.com/SQLServer/feedback/details/3080744)
+* Fixed the issue that temporary files are added to the “Recent Files” list.  
+[Microsoft Connect Item: 2558789](https://connect.microsoft.com/SQLServer/feedback/details/2558789)
+* Fixed the issue that “Manage Compression” menu item is disabled for the user table nodes in object explorer tree.  
+[Microsoft Connect Item: 3104616](https://connect.microsoft.com/SQLServer/feedback/details/3104616)
+* Fixed the issue that user is not able to set the font size for object explorer, registered server explorer, template explorer as well as object explorer details. Font for the explorers will be using the Environment font.  
+[Microsoft Connect Item: 691432](https://connect.microsoft.com/SQLServer/feedback/details/691432)
+* Fixed the issue that SSMS always reconnect to the default database when connection is lost.  
+[Microsoft Connect Item: 3102337](https://connect.microsoft.com/SQLServer/feedback/details/3102337)
+* Fixed many of high dpi issues in policy management and query editor window including the execution plan icons.
+* Fixed the issue that option to config font and color for Extended Event is missing.
+* Fixed the issue of SSMS crashes that occur when closing the application or when it is trying to show the error dialog.
 </releaseNotes>
   </metadata>
   <files>
