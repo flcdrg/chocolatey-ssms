@@ -102,7 +102,7 @@ function Update-Version
         Write-Host "Unable to find the release on the download page. Check the regex above"
    }
 
-   $isMatch = $content -match '\<a href\=\"(?<url>http.+=\d+)\"\>Download SQL Server Management Studio'
+   $isMatch = $content -match '\<a href\=\"(?<url>https://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\''\,]*))\"\>Download SQL Server Management Studio'
 
    if ($isMatch)
    {

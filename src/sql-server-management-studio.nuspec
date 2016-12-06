@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>sql-server-management-studio</id>
-    <version>13.0.16000.28</version>
+    <version>13.0.16100.1</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-ssms</packageSourceUrl>
     <owners>flcdrg</owners>
     <title>SQL Server Management Studio</title>
@@ -34,21 +34,11 @@ This release of SSMS supports the following platforms when used with the latest 
 Windows 10, Windows 8, Windows 8.1, Windows 7 (SP1), Windows Server 2012 (64-bit), Windows Server 2012 R2 (64-bit), Windows Server 2008 R2 (64-bit)
 	</description>
     <releaseNotes>
-#### [SSMS 16.5 release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
+#### [SSMS 16.5.1 release](https://msdn.microsoft.com/en-us/library/mt588477.aspx)
 
-* Fixed an issue where a crash could occur when a database with table name containing “;:” was clicked on.
-* Fixed an issue where changes made to the Model page in AS Tabular Database Properties window would script out the original definition. [Microsoft Connect Item: 3080744](https://connect.microsoft.com/SQLServer/feedback/details/3080744)
-* Fixed the issue that temporary files are added to the “Recent Files” list.  
-[Microsoft Connect Item: 2558789](https://connect.microsoft.com/SQLServer/feedback/details/2558789)
-* Fixed the issue that “Manage Compression” menu item is disabled for the user table nodes in object explorer tree.  
-[Microsoft Connect Item: 3104616](https://connect.microsoft.com/SQLServer/feedback/details/3104616)
-* Fixed the issue that user is not able to set the font size for object explorer, registered server explorer, template explorer as well as object explorer details. Font for the explorers will be using the Environment font.  
-[Microsoft Connect Item: 691432](https://connect.microsoft.com/SQLServer/feedback/details/691432)
-* Fixed the issue that SSMS always reconnect to the default database when connection is lost.  
-[Microsoft Connect Item: 3102337](https://connect.microsoft.com/SQLServer/feedback/details/3102337)
-* Fixed many of high dpi issues in policy management and query editor window including the execution plan icons.
-* Fixed the issue that option to config font and color for Extended Event is missing.
-* Fixed the issue of SSMS crashes that occur when closing the application or when it is trying to show the error dialog.
+* Fixed an issue where Invoke-Sqlcmd erroneously inserts multiple rows when check constraint occurs. [Microsoft Connect Item: 811560](https://connect.microsoft.com/SQLServer/feedback/details/811560)
+* Fixed an issue where non-ENU language versions do not work completely when creating Availability Groups.
+* Fixed an issue where clicking query plan XML does not open the proper SSMS UI.
 </releaseNotes>
   </metadata>
   <files>
