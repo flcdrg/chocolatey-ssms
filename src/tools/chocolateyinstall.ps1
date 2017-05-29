@@ -1,32 +1,40 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-(Get-WmiObject -Class Win32_OperatingSystem).Version -match "(?<Major>\d+).(?<Minor>\d+).(?<Build>\d+)" | Out-Null
-
-if ($Matches.Major -eq 6 -and $Matches.Minor -eq 3)
-{
-    # Windows 8.1 / Server 2012 R2 requires a prerequisite hotfix 
-    if (-not (Get-HotFix -Id KB2919355 -ErrorAction SilentlyContinue))
-    {
-        Write-Error "A prerequisite for installing SQL 2016 on Windows 8.1 and Windows Server 2012 R2 is to have hotfix KB2919355 installed. See https://msdn.microsoft.com/library/ms143506.aspx for more details"
-    }
-}
-
 $packageName= 'SQL Server Management Studio'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/C/8/A/C8AE3D51-5AAD-4DCF-809C-667D691629E4/SSMS-Setup-ENU.exe'
+
+$fullUrl = 'https://download.microsoft.com/download/5/0/B/50B02ECB-CB5C-4C23-A1D3-DAB4467604DA/SSMS-Setup-ENU.exe'
+$fullChecksum = 'E7EB0843299DA85BB294082D408F986191F2EE63F6D21813FDCEAA6019848E47'
+
+$upgradeUrl = 'https://download.microsoft.com/download/5/0/B/50B02ECB-CB5C-4C23-A1D3-DAB4467604DA/SSMS-Setup-ENU-Upgrade.exe'
+$upgradeChecksum = '68668E601B7D39EE55087CDF080CB0B340FEBF4F3BC4EC9D65EC4153F7B4CD60'
+
+$release = '17.1'
+
+# Check if 17.0 is installed so we can get upgrade package instead of full package
+$ssms170 = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion | Where-Object { $_.DisplayName -eq "SQL Server Management Studio" -and $_.DisplayVersion -eq "14.0.17099.0" }
 
 $packageArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
   fileType      = 'EXE'
-  url           = $url
+  url           = ''
 
   silentArgs    = "/quiet /install /norestart /log `"$env:TEMP\chocolatey\$($packageName)\$($packageName).MsiInstall.log`""
   validExitCodes= @(0, 3010, 1641)
 
-  softwareName  = 'SQL Server Management Studio - 17.0'
-  checksum      = '54692d0a38b44c6d0318c12c32ca69d3852c68116642914c8efdcba020c89dda'
+  softwareName  = "SQL Server Management Studio - $release"
+  checksum      = ''
   checksumType  = 'SHA256'
+}
+
+if ($ssms170) {
+    Write-Warning "Existing install found, using upgrade installer"
+    $packageArgs.url = $upgradeUrl
+    $packageArgs.checksum = $upgradeChecksum
+} else {
+    $packageArgs.url = $fullUrl
+    $packageargs.checksum = $fullChecksum
 }
 
 Install-ChocolateyPackage @packageArgs
